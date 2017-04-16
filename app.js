@@ -5,15 +5,15 @@
     var dns = require('dns')
     var os = require('os')
 
-    var obj = {};
-
     app.get('/', function(req, res) {
 
-      res.send(obj = {
-        'IP Address': dns.getServers()[0],
+    var obj = {
+        'IP Address': req.socket.remoteAddress,
         'Language'  : req.acceptsLanguages()[0],
-        'Software'  : os.platform()
-      })
+        'Software'  : req.headers['user-agent']
+      }
+res.send(obj);
+      // console.log(req)
     })
 // req.get('User-agent');
           //  var cpu = os.cpus();
