@@ -8,13 +8,13 @@
     app.get('/', function(req, res) {
 //  req.connection.remoteAddress,
 // req.socket.remoteAddress,
- var ip = req.headers['x-forwarded-for'] || 
-     req.connection.remoteAddress || 
-     req.socket.remoteAddress ||
-     req.connection.socket.remoteAddress;
+//  var ip = req.headers['x-forwarded-for'] || 
+//      req.connection.remoteAddress || 
+//      req.socket.remoteAddress ||
+//      req.connection.socket.remoteAddress;
 
     var obj = {
-        'IP Address': ip,
+        'IP Address': req.ip,
         'Language'  : req.acceptsLanguages()[0],
         'Software'  : req.headers['user-agent']
       }
