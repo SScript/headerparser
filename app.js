@@ -1,7 +1,6 @@
     var express = require('express')
     var app = express()
     var port = Number(process.env.PORT||8080);
-var http = require('http')
 
     var dns = require('dns')
     var os = require('os')
@@ -31,7 +30,7 @@ var http = require('http')
 //   console.log('addresses:', addresses);
 // });
 
-    app.listen(3000, function(err, success) {
+    app.listen(port, function(err, success) {
       if (err) return err;
       console.log("Connected to port 3000");
     });
