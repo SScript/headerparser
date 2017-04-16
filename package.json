@@ -1,0 +1,19 @@
+{
+  "name": "headerparser",
+  "version": "1.0.0",
+  "description": "header parser whoami",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SScript/headerparser.git"
+  },
+  "author": "SScript",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SScript/headerparser/issues"
+  },
+  "homepage": "https://github.com/SScript/headerparser#readme"
+}
