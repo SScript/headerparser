@@ -8,7 +8,7 @@
     app.get('/', function(req, res) {
 
     var obj = {
-        'IP Address': req.ip,
+        'IP Address': req.connection.remoteAddress,
         'Language'  : req.acceptsLanguages()[0],
         'Software'  : req.headers['user-agent']
       }
