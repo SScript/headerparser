@@ -6,9 +6,15 @@
     var os = require('os')
 
     app.get('/', function(req, res) {
+//  req.connection.remoteAddress,
+// req.socket.remoteAddress,
+ var ip = req.headers['x-forwarded-for'] || 
+     req.connection.remoteAddress || 
+     req.socket.remoteAddress ||
+     req.connection.socket.remoteAddress;
 
     var obj = {
-        'IP Address': req.connection.remoteAddress,
+        'IP Address': ip,
         'Language'  : req.acceptsLanguages()[0],
         'Software'  : req.headers['user-agent']
       }
