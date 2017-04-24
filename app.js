@@ -24,6 +24,8 @@
 
     var obj = {
         'IP Address' : ip,
+        'x forw' : req.header['x-forwarded-for'],
+        'req conn localadd' : req.connection.localAddress,
         'Language'   : req.acceptsLanguages()[0],
         'Software'   : req.get('user-agent')
       }
