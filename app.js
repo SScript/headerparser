@@ -13,7 +13,8 @@
 //      req.connection.socket.remoteAddress;
 
     var obj = {
-        'x-forwarded-fo': req.headers['x-forwarded-for'],
+        'req.ip': req.ip,
+        'x-forwarded-for': req.headers['x-forwarded-for'],
         'x-forwarded-for': req.get('x-forwarded-for'),
         'req.connection.remoteAddress': req.connection.remoteAddress,
         'req.socket.remoteAddress' : req.socket.remoteAddress,
