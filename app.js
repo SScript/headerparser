@@ -20,17 +20,12 @@
     //     'Software'  : req.get('user-agent')
     //   }
 
+    var ip = (req.header['x-forwarded-for'] ? req.header['x-forwarded-for'] : req.connection.localAddress)
+
     var obj = {
-        'req.ip': req.ip,
-        'x-forwarded-for1': req.headers['x-forwarded-for'],
-        'x-forwarded-for2': req.get('x-forwarded-for'),
-        'req.connection.remoteAddress': req.connection.remoteAddress,
-        'req.socket.remoteAddress' : req.socket.remoteAddress,
-        'req.connection.remotePort': req.connection.remotePort,
-        'req.connection.localAddress': req.connection.localAddress,
-        'req.connection.localPort': req.connection.localPort,
-        'Language'  : req.acceptsLanguages()[0],
-        'Software'  : req.get('user-agent')
+        'IP Address' : ip,
+        'Language'   : req.acceptsLanguages()[0],
+        'Software'   : req.get('user-agent')
       }
 
     res.json(obj);
