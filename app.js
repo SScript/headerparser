@@ -20,12 +20,10 @@
     //     'Software'  : req.get('user-agent')
     //   }
 
-    var ip = (req.header['x-forwarded-for'] ? req.header['x-forwarded-for'] : req.connection.localAddress)
+    var ip = (req.header['x-forwarded-for'] ? req.headers['x-forwarded-for'] : req.connection.localAddress)
 
     var obj = {
         'IP Address' : ip,
-        'x forw' : req.header['x-forwarded-for'],
-        'req conn localadd' : req.connection.localAddress,
         'Language'   : req.acceptsLanguages()[0],
         'Software'   : req.get('user-agent')
       }
