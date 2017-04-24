@@ -6,15 +6,19 @@
     var os = require('os')
 
     app.get('/', function(req, res) {
-//  req.connection.remoteAddress,
-// req.socket.remoteAddress,
+
 //  var ip = req.headers['x-forwarded-for'] || 
 //      req.connection.remoteAddress || 
 //      req.socket.remoteAddress ||
 //      req.connection.socket.remoteAddress;
 
     var obj = {
-        'IP Address': req.connection.remoteAddress,
+        'x-forwarded-for': req.headers['x-forwarded-for'],
+        'req.connection.remoteAddress': req.connection.remoteAddress,
+        'req.socket.remoteAddress' : req.socket.remoteAddress,
+        'req.connection.remotePort': req.connection.remotePort,
+        'req.connection.localAddress': req.connection.localAddress,
+        'req.connection.localPort': req.connection.localPort,
         'Language'  : req.acceptsLanguages()[0],
         'Software'  : req.get('user-agent')
       }
@@ -22,7 +26,8 @@
 // req.connection.remotePort,
 // req.connection.localAddress,
 // req.connection.localPort)
-res.send(obj);
+res.json(obj);
+// console.log(req.connection.socket)
       // console.log(req)
     })
 // req.get('User-agent');
